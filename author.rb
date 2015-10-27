@@ -10,7 +10,7 @@ class Author
 	end
 
 	def to_s
-		@name
+		"#{@name}. #{@biography}"
 	end
 end
 

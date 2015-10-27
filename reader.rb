@@ -1,18 +1,20 @@
 class Reader
 	attr_accessor :name, :email, :city, :street, :house
 
-	def initialize(name, email = nil, address = {})
+	def initialize(name, email = nil, city = nil, street = nil, house = nil)
 		@name, @email = name, email
-		@city = address[:city]
-		@street = address[:street]
-		@house = Integer(address[:house])
+		@city, @street, @house = city, street, house
 	end
 
-	def ==(name)
-		self.name == name
+	def ==(reader)
+		self.name == reader.name
+	end
+
+	def address
+		"#{@city} city, #{@street} street, №#{house}"
 	end
 
 	def to_s
-		@name
+		"#{@name}, #{address}"
 	end
 end

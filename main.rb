@@ -24,18 +24,10 @@ books = [
 ]
 
 readers = [
-	vincent = Reader.new(
-		"Vincent Vega", "pulp@mail.com", 
-		{ :city => "Texas", :street => "Elm", :house => 144 }),
-	jules = Reader.new(
-		"Jules Winnfield", "fiction@mail.com", 
-		{ :city => "Minnesota", :street => "Rotten", :house => 12 }),
-	ode_su = Reader.new(
-		"O De Su", "oldboy@mail.com", 
-		{ :city => "Tokyo", :street => "Fish", :house => 1228 }),
-	norman = Reader.new(
-		"Norman Bates", "psycho@mail.com", 
-		{ :city => "New York", :street => "Unknown", :house => 1 })
+	vincent = Reader.new("Vincent Vega", "pulp@mail.com", "Texas", "Elm", 144),
+	jules = Reader.new("Jules Winnfield", "fiction@mail.com", "Minnesota", "Rotten", 12),
+	ode_su = Reader.new("O De Su", "oldboy@mail.com", "Tokyo", "Fish", 1228),
+	norman = Reader.new("Norman Bates", "psycho@mail.com", "New York", "Unknown", 1)
 ]
 
 orders = [
@@ -59,8 +51,16 @@ library = Library.new(books, authors, readers, orders)
 puts "The most popular book is '#{library.most_popular_book}'"
 puts "#{library.people_ordered_one_of_three_most_popular_books} people ordered one of the three most popular books"
 puts "Reader who the most often takes books is #{library.most_often_takes_books}"
-library.get_books("data/books")
-library.save_data("data/saved_data/books")
-puts library.status
-library.delete_author("Edgar Allan Poe")
-puts library.status
+
+library.get_books
+library.get_authors
+library.get_readers
+library.get_orders
+
+library.save_books
+library.save_authors
+library.save_readers
+library.save_orders
+
+library.delete_author(keyes)
+

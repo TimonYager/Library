@@ -8,6 +8,6 @@ class Order
 	end
 
 	def to_s
-		"Order on #{@date.strftime("%D, %R")}, '#{@book.title}', ordered by #{@reader.name}"
+		"#{@date.strftime("%D, %R")}, '#{@book.title}', ordered by #{@reader.name}"
 	end
 end

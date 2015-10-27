@@ -10,6 +10,6 @@ class Book
 	end
 
 	def to_s
-		"'#{@title}' written by #{@author.name}"
+		"'#{@title}', #{@author.name}"
 	end
 end
